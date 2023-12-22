@@ -4,10 +4,12 @@ const input = document.getElementById("input");
 const messages = document.getElementById("messages");
 const chatContainer = document.getElementById("chat-container");
 
+
+const username = chatContainer.getAttribute("data-username");
 form.addEventListener('submit', function(e){
     e.preventDefault();
     if(input.value){
-        socket.emit("chat", { message: input.value, username: "<%= user.username %>"});
+        socket.emit("chat", { message: input.value, username: username});
         input.value = "";
     }
 });
