@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }
 
-#form-chat{
+#form-chat {
   background: lightgray;
   padding: 5px;
   position: fixed;
@@ -17,12 +17,27 @@ a {
   right: 0;
   margin: 0;
 }
-#input{
+
+#input {
   flex-grow: 1;
 }
-#messages{
+
+#messages {
   list-style-type: none;
 }
-#messages > li:nth-child(odd){
+
+/* Estilo para mensajes enviados por otros usuarios */
+.other-user-message {
   background: lightblue;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+/* Estilo para mensajes enviados por el usuario actual */
+.current-user-message {
+  background: lightgreen;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 10px;
 }
