@@ -22,12 +22,16 @@ app.set('port', port);
 
 var server = http.createServer(app);
 const io = new Server(server);
+
+const messages = [];
 io.on('connection', (socket) => {
   console.log('a user connected');
+  socket.emit('previousMessages', messages);
   socket.on('chat', (msg)=>{
     console.log("Mensaje recibido del cliente: " + msg);
-    io.emit('chat', msg);
-  })
+    messages.push({username: msg.username, message:msg.message});
+    io.emit('chat',  { username: msg.username, message: msg.message });
+  });
 
   socket.on('disconnect', () => {
     console.log('user disconnected');

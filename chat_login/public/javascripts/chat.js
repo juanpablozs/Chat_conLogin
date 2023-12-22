@@ -5,6 +5,15 @@ const messages = document.getElementById("messages");
 const chatContainer = document.getElementById("chat-container");
 
 
+socket.on("previousMessages", (previousMessages) => {
+    previousMessages.forEach((msg) => {
+        const item = document.createElement("li");
+        item.textContent = `${msg.username}: ${msg.message}`;
+        messages.appendChild(item);
+        
+    });
+});
+
 const username = chatContainer.getAttribute("data-username");
 form.addEventListener('submit', function(e){
     e.preventDefault();
